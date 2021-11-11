@@ -1,0 +1,24 @@
+.mainDiv {
+  border: 3px solid black;
+  background-color: linen;
+  text-align: center;
+  padding: 25px;
+  margin-top: 75px;
+  /* margin-right: 150px;
+  margin-left: 150px; */
+}
+
+h1 {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 50px;
+}
+
+p {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+div {
+  text-align: center;
+}
