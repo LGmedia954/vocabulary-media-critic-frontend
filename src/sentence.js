@@ -1,17 +1,17 @@
-// const newSentence = document.querySelector("#new-sentence")
-// const createSentenceForm = document.querySelector("#create-sentence-form")
+const newSentence = document.querySelector("#new-sentence")
+const createSentenceForm = document.querySelector("#create-sentence-form")
 
 class Sentence {
 
-  // static listenForEvents() {
-  //   newSentence.addEventListener('click', this.showForm)
-  //   sentenceForm.addEventListener('submit', (e) => Sentence.createSentence(e))
-  // }
+    static listenForEvents() {
+    newSentence.addEventListener('click', this.showForm)
+    sentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
+  }
 
-  // static showForm() {
-  //   newSentence.style.display="none"
-  //   sentenceForm.style.display="block"
-  // }
+  static showForm() {
+    newSentence.style.display="none"
+    createSentenceForm.style.display="block"
+  }
 
 // function showForm() {
 //   let x = document.getElementById("sentenceForm");
@@ -22,11 +22,18 @@ class Sentence {
 //   }
 // }
 
-  // static createSentence(e) {
-  //   e.preventDefault()
-  //   let example = document.querySelector("#example").value
-  //   let vwId = document.querySelector("#vocabulary_word_id").value
-  // }
+  static formHandler(e) {
+    e.preventDefault()
+    let eInput = document.querySelector("#input-example").value
+    let vWordId = document.querySelector("#input-vocabulary_word_id").value
+    createSentence(eInput, vWordId)
+  }
+
+  static createSentence(example, vocabulary_word_id) {
+    console.log();
+  }
+
+
 
 }
 

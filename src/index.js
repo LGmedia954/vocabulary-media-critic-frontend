@@ -2,10 +2,8 @@ const endPoint = "http://localhost:3000/api/v1/vocabulary_words"
 
 document.addEventListener('DOMContentLoaded', () => {
   getVocab()
-  // Sentence.listenForEvents()
-  // Sentence.formHandler(e)
-  const createSentenceForm = document.querySelector("#create-sentence-form")
-  createSentenceForm.addEventListener("submit", (e) => createFormHandler(e))
+  Sentence.listenForEvents()
+
 })
 
 function getVocab() {
@@ -22,10 +20,10 @@ function getVocab() {
 
           <div class="form-container"><br>
             <form id="create-sentence-form" style="">
-            <input id='input-example' type="text" size="100" name="example" value="" placeholder="Enter your sentence here." class="input-text">
-            <input id='input-vocabulary_word_id' type="hidden" name="vocabulary_word_id" value="">
-            <br><br>
-            <input id= 'create-button' type="submit" name="submit" value="Create New Sentence" class="submit">
+              <input id='input-example' type="text" size="100" name="example" value="" placeholder="Enter your sentence here." class="input-text">
+              <input id='input-vocabulary_word_id' type="hidden" name="vocabulary_word_id" value="">
+              <br><br>
+              <input id= 'create-button' type="submit" name="submit" value="Create New Sentence" class="submit">
             </form>
           </div>
         <br><br>`;
@@ -35,8 +33,3 @@ function getVocab() {
     })
  }
 
-  function createFormHandler(e) {
-    e.preventDefault()
-    debugger
-    // console.log(e);
-  }
