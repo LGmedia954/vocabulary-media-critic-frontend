@@ -9,7 +9,6 @@ function getVocab() {
   .then(response => response.json())
   .then(vocab => {
     vocab.data.forEach(vocabulary_word => {
-      
       const vMarkup = `
         <div data-id=${vocabulary_word.id}>
           <h2>${vocabulary_word.attributes.word}</h2>
