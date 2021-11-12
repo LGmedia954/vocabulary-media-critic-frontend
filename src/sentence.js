@@ -3,9 +3,9 @@ const createSentenceForm = document.querySelector("#create-sentence-form")
 
 class Sentence {
 
-    static listenForEvents() {
+  static listenForEvents() {
     newSentence.addEventListener('click', this.showForm)
-    sentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
+    createSentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
   }
 
   static showForm() {
@@ -24,13 +24,18 @@ class Sentence {
 
   static formHandler(e) {
     e.preventDefault()
-    let eInput = document.querySelector("#input-example").value
-    let vWordId = document.querySelector("#input-vocabulary_word_id").value
+    const eInput = document.querySelector("#input-example").value
+    const vWordId = document.querySelector("#input-vocabulary_word_id").value
     createSentence(eInput, vWordId)
   }
 
   static createSentence(example, vocabulary_word_id) {
-    console.log();
+    console.log(example, vocabulary_word_id);
+
+
+
+
+
   }
 
 
