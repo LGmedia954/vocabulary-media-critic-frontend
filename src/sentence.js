@@ -1,20 +1,20 @@
 const tryIt = document.querySelector("#try-it")
-const createSentenceForm = document.querySelector("#create-sentence-form")
+// const createSentenceForm = document.querySelector("#create-sentence-form")
 const mySentence = document.querySelector("#my-sentence")
 
 class Sentence {
 
-  static listenForEvents() {
-    tryIt.addEventListener('click', this.showForm)
-    createSentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
-  }
+  // static listenForEvents() {
+  //   tryIt.addEventListener('click', this.showForm)
+  //   createSentenceForm.addEventListener('submit', (e) => Sentence.sFormHandler(e))
+  // }
 
   static showForm() {
     createSentenceForm.style.display="none"
     createSentenceForm.style.display="block"
   }
 
-  static formHandler(e) {
+  static sFormHandler(e) {
     e.preventDefault()
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
@@ -32,20 +32,17 @@ class Sentence {
     .then(response => response.json())
     .then(sentence => {
       console.log(sentence);
+      // const sentenceData = sentence.data
 
-      const sentenceData = sentence.data
-
-      const sMarkup = `
-      <div data-id=${sentence.id}>
-        <h5>${sentenceData.attributes.example}</h5><br>
-        <button data-id=${sentenceData.id}>edit</button>
-      </div>
-      <br><br>`;
+      // const sMarkup = `
+      // <div data-id=${sentence.id}>
+      //   <h5>${sentenceData.attributes.example}</h5><br>
+      //   <button data-id=${sentenceData.id}>edit</button>
+      // </div>
+      // <br><br>`;
   
-      document.querySelector('#s-container').innerHTML += sMarkup;
+      // document.querySelector('#s-container').innerHTML += sMarkup;
     })
-
-
   }
 
 
