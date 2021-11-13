@@ -16,7 +16,7 @@ function getVocab() {
       render(vocabulary_word)
       })
     })
-
+  .catch(error => console.log(error))
  }
 
  function render(vocabulary_word) {
