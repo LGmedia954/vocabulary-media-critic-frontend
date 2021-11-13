@@ -1,15 +1,16 @@
+const tryIt = document.querySelector("#try-it")
 const createSentenceForm = document.querySelector("#create-sentence-form")
 const mySentence = document.querySelector("#my-sentence")
 
 class Sentence {
 
   static listenForEvents() {
-    createSentenceForm.addEventListener('click', this.showForm)
+    tryIt.addEventListener('click', this.showForm)
     createSentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
   }
 
   static showForm() {
-    createSentenceForm.style.display="none"
+    tryIt.style.display="none"
     createSentenceForm.style.display="block"
   }
 
@@ -21,9 +22,7 @@ class Sentence {
   }
 
   static createSentence(example, vocabulary_word_id) {
-    let sData = {
-      example, vocabulary_word_id
-    }
+    let sData = {example, vocabulary_word_id}
 
     fetch(endPoint, {
       method: "POST",
@@ -33,21 +32,21 @@ class Sentence {
     .then(response => response.json())
     .then(sentence => {
       console.log(sentence);
-      const sentenceData = sentence.data
 
-      const sMarkup = `
-      <div data-id=${sentence.id}>
-        <h5>${sentenceData.attributes.example}</h5><br>
-        <button data-id=${sentenceData.id}>edit</button>
-      </div>
-      <br><br>`;
+      // const sentenceData = sentence.data
+
+      // const sMarkup = `
+      // <div data-id=${sentence.id}>
+      //   <h5>${sentenceData.attributes.example}</h5><br>
+      //   <button data-id=${sentenceData.id}>edit</button>
+      // </div>
+      // <br><br>`;
   
-      document.querySelector('#s-container').innerHTML += sMarkup;
+      // document.querySelector('#s-container').innerHTML += sMarkup;
     })
 
 
   }
-
 
 
 }
