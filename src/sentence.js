@@ -30,6 +30,7 @@ class Sentence {
       body: JSON.stringify(sData)
     })
     .then(response => response.json())
+    .catch(error => console.log(error))
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
