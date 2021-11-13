@@ -32,16 +32,16 @@ class Sentence {
     .then(response => response.json())
     .then(sentence => {
       console.log(sentence);
-      // const sentenceData = sentence.data
-
-      // const sMarkup = `
-      // <div data-id=${sentence.id}>
-      //   <h5>${sentenceData.attributes.example}</h5><br>
-      //   <button data-id=${sentenceData.id}>edit</button>
-      // </div>
-      // <br><br>`;
+      const sentenceData = sentence.data
+      // Data not coming through here.
+      const sMarkup = `
+      <div data-id=${sentence.id}>
+        <h5>${sentenceData.attributes.example}</h5><br>
+        <button data-id=${sentenceData.id}>edit</button>
+      </div>
+      <br><br>`;
   
-      // document.querySelector('#s-container').innerHTML += sMarkup;
+      document.querySelector('#s-container').innerHTML += sMarkup;
     })
   }
 
