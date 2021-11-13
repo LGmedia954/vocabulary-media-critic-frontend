@@ -10,7 +10,7 @@ class Sentence {
   }
 
   static showForm() {
-    tryIt.style.display="none"
+    createSentenceForm.style.display="none"
     createSentenceForm.style.display="block"
   }
 
@@ -33,16 +33,16 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
 
-      // const sentenceData = sentence.data
+      const sentenceData = sentence.data
 
-      // const sMarkup = `
-      // <div data-id=${sentence.id}>
-      //   <h5>${sentenceData.attributes.example}</h5><br>
-      //   <button data-id=${sentenceData.id}>edit</button>
-      // </div>
-      // <br><br>`;
+      const sMarkup = `
+      <div data-id=${sentence.id}>
+        <h5>${sentenceData.attributes.example}</h5><br>
+        <button data-id=${sentenceData.id}>edit</button>
+      </div>
+      <br><br>`;
   
-      // document.querySelector('#s-container').innerHTML += sMarkup;
+      document.querySelector('#s-container').innerHTML += sMarkup;
     })
 
 
