@@ -1,26 +1,17 @@
-const newSentence = document.querySelector("#new-sentence")
 const createSentenceForm = document.querySelector("#create-sentence-form")
+const mySentence = document.querySelector("#my-sentence")
 
 class Sentence {
 
   static listenForEvents() {
-    newSentence.addEventListener('click', this.showForm)
+    createSentenceForm.addEventListener('click', this.showForm)
     createSentenceForm.addEventListener('submit', (e) => Sentence.formHandler(e))
   }
 
   static showForm() {
-    newSentence.style.display="none"
+    createSentenceForm.style.display="none"
     createSentenceForm.style.display="block"
   }
-
-// function showForm() {
-//   let x = document.getElementById("sentenceForm");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
 
   static formHandler(e) {
     e.preventDefault()
@@ -30,10 +21,29 @@ class Sentence {
   }
 
   static createSentence(example, vocabulary_word_id) {
-    console.log(example, vocabulary_word_id);
+    let sData = {
+      example, vocabulary_word_id
+    }
 
+    fetch(endPoint, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(sData)
+    })
+    .then(response => response.json())
+    .then(sentence => {
+      console.log(sentence);
+      const sentenceData = sentence.data
 
-
+      const sMarkup = `
+      <div data-id=${sentence.id}>
+        <h5>${sentenceData.attributes.example}</h5><br>
+        <button data-id=${sentenceData.id}>edit</button>
+      </div>
+      <br><br>`;
+  
+      document.querySelector('#s-container').innerHTML += sMarkup;
+    })
 
 
   }

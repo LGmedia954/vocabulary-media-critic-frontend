@@ -16,7 +16,7 @@ function getVocab() {
           <h2>${vocabulary_word.attributes.word}</h2>
           <i>${vocabulary_word.attributes.part_of_speech}</i>
           <p>${vocabulary_word.attributes.definition}</p>
-          <button onclick="showForm()">Try It</button>
+          <button id="showForm()">Try It</button>
 
           <div class="form-container"><br>
             <form id="create-sentence-form" style="">
@@ -25,6 +25,9 @@ function getVocab() {
               <br><br>
               <input id= 'create-button' type="submit" name="submit" value="Create New Sentence" class="submit">
             </form>
+            <div id="my-sentence" style=""><br>
+            
+            </div>
           </div>
         <br><br>`;
 
