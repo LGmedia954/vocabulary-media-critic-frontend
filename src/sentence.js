@@ -18,10 +18,10 @@ class Sentence {
     e.preventDefault()
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
-    createSentence(eInput, vWordId)
+    postSentence(eInput, vWordId)
   }
 
-  static createSentence(example, vocabulary_word_id) {
+  static postSentence(example, vocabulary_word_id) {
     let sData = {example, vocabulary_word_id}
 
     fetch(endPoint, {
