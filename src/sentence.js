@@ -15,7 +15,7 @@ class Sentence {
   }
 
   static sFormHandler(e) {
-    e.preventDefault()
+    e.preventDefault();
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
     postSentence(eInput, vWordId)
@@ -26,11 +26,14 @@ class Sentence {
 
     fetch(endPoint, {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify(sData)
     })
     .then(response => response.json())
-    .catch(error => console.log(error))
+    // .catch(error => console.log(error))
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data

@@ -3,7 +3,7 @@ const endPoint = "http://localhost:3000/api/v1/vocabulary_words"
 document.addEventListener('DOMContentLoaded', () => {
   getVocab()
   // Sentence.listenForEvents()
-  const createSentenceForm = document.querySelector("#create-sentence-form")
+  const createSentenceForm = document.querySelector('#create-sentence-form')
   createSentenceForm.addEventListener('submit', (e) => Sentence.sFormHandler(e))
 
 })
