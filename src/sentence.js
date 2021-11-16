@@ -18,7 +18,7 @@ class Sentence {
     e.preventDefault();
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
-    postSentence(eInput, vWordId)
+    Sentence.postSentence(eInput, vWordId)
   }
 
   static postSentence(example, vocabulary_word_id) {
