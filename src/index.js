@@ -23,3 +23,17 @@ function getVocab() {
     })
   .catch(error => console.log(error))
  }
+
+function getSentence() {
+  fetch(endPoint)
+  .then(response => response.json())
+  .then(blurb => {
+    blurb.data.forEach(sentence => {
+      // creating a new instance of the S class from array
+      let newSentence = new Sentence(sentence, sentence.attributes)
+      
+      // document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+    })
+    .catch(error => console.log(error))
+  })
+}

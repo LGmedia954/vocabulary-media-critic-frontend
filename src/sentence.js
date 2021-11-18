@@ -16,46 +16,32 @@ class Sentence {
     e.preventDefault();
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
-    Sentence.sPostFetch(eInput, vWordId)
+    Sentence.postSentence(eInput, vWordId)
   }
 
-static sPostFetch(example, vocabulary_word_id) {
-  let sData = {example, vocabulary_word_id}
+  static postSentence(example, vocabulary_word_id) {
+    let sData = {example, vocabulary_word_id}
 
-  fetch(endPoint, {
-    method: "POST",
-    headers: { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(sData)
-  })
-  .then(response => response.json())
-  // .catch(error => console.log(error))
-  .then(sentence => {
-    console.log(sentence);
-    const sentenceData = sentence.data
-    // Data not coming through here.
-    // debugger
-    let newSentence = new Sentence(sentenceData, sentenceData.attributes)
+    fetch(endPoint, {
+      method: "POST",
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(sData)
+    })
+    .then(response => response.json())
+    // .catch(error => console.log(error))
+    .then(sentence => {
+      console.log(sentence);
+      const sentenceData = sentence.data
+      // Data not coming through here. Check the above line for how it's nested.
+      // let newSentence = new Sentence(sentence, sentence.attributes)
+      let newSentence = new Sentence(sentenceData, sentenceData.attributes)
 
-    document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
-  })
-}
-
-static getSentence() {
-  fetch(endPoint)
-  .then(response => response.json())
-  .then(blurb => {
-    blurb.data.forEach(sentence => {
-      // creating a new instance of the S class from array
-      let newSentence = new Sentence(sentence, sentence.attributes)
-      
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
-    .catch(error => console.log(error))
-  })
-}
+  }
   
 renderMySentence() {
   return `
