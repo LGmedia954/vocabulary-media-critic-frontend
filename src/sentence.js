@@ -16,10 +16,10 @@ class Sentence {
     e.preventDefault();
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
-    Sentence.postSentence(eInput, vWordId)
+    Sentence.sPostFetch(eInput, vWordId)
   }
 
-  static postSentence(example, vocabulary_word_id) {
+  static sPostFetch(example, vocabulary_word_id) {
     let sData = {example, vocabulary_word_id}
 
     fetch(endPoint, {
@@ -56,4 +56,3 @@ renderMySentence() {
 }
 
 Sentence.all = [];
-

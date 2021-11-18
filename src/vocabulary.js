@@ -22,7 +22,7 @@ renderVocabularyCard() {
         <input id='create-button' type="submit" name="submit" value="Create New Sentence" class="submit">
       </form>
     </div>
-      <div id="my-sentence" style=""><br></div>
+      <div id="s-container" style=""><br></div>
     </div>
   <br><br>`;
  }
