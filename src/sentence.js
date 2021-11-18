@@ -1,13 +1,11 @@
-const tryIt = document.querySelector("#try-it")
-// const createSentenceForm = document.querySelector("#create-sentence-form")
 const mySentence = document.querySelector("#my-sentence")
-
 class Sentence {
-
-  // static listenForEvents() {
-  //   tryIt.addEventListener('click', this.showForm)
-  //   createSentenceForm.addEventListener('submit', (e) => Sentence.sFormHandler(e))
-  // }
+  constructor(sentence, sAttributes) { 
+    this.id = sentence.id
+    this.example = sAttributes.example
+    this.vocabulary_word_id = sAttributes.vocabulary_word_id
+    Sentence.all.push(this)
+  }
 
   static showForm() {
     createSentenceForm.style.display="none"
@@ -37,18 +35,25 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
-      // Data not coming through here.
-      const sMarkup = `
-      <div data-id=${sentence.id}>
-        <h5>${sentenceData.attributes.example}</h5><br>
-        <button data-id=${sentenceData.id}>edit</button>
-      </div>
-      <br><br>`;
-  
-      document.querySelector('#s-container').innerHTML += sMarkup;
+      // Data not coming through here. Check the above line for how it's nested.
+      // let newSentence = new Sentence(sentence, sentence.attributes)
+      let newSentence = new Sentence(sentenceData, sentenceData.attributes)
+
+      document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
   }
-
+  
+renderMySentence() {
+  return `
+    <div data-id=${this.id}>
+      <h3>${this.example}</h3>
+      <p>${this.vocabulary_word_id}</p>
+      <button data-id=${this.id}>edit</button>
+    </div>
+    <br><br>`;
+  }
 
 }
+
+Sentence.all = [];
 
