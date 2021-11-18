@@ -16,8 +16,7 @@ function getVocab() {
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
 
-    // these 2 lines below were moved here
-    // because we needed to wait for fetch to finish
+    // these 2 lines were moved here because we needed to wait for fetch to finish
     const createSentenceForm = document.querySelector('#create-sentence-form')
     createSentenceForm.addEventListener('submit', (e) => Sentence.sFormHandler(e))
 
