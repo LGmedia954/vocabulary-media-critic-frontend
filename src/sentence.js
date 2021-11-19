@@ -5,22 +5,24 @@ class Sentence {
     this.example = sAttributes.example
     this.vocabulary_word_id = sAttributes.vocabulary_word_id
     Sentence.all.push(this)
+    console.log(this);
   }
 
-  static showForm() {
-    createSentenceForm.style.display="none"
-    createSentenceForm.style.display="block"
-  }
+  // static showForm() {
+  //   createSentenceForm.style.display="none"
+  //   createSentenceForm.style.display="block"
+  // }
 
-  static sFormHandler(e) {
+  sFormHandler(e) {
     e.preventDefault();
     const eInput = document.querySelector("#input-example").value
     const vWordId = document.querySelector("#input-vocabulary_word_id").value
-    Sentence.postSentence(eInput, vWordId)
+    Sentence.sPostFetch(eInput, vWordId)
   }
 
-  static postSentence(example, vocabulary_word_id) {
-    let sData = {example, vocabulary_word_id}
+  sPostFetch(example, vocabulary_word_id) {
+    // build body object outside of fetch
+    const sData = {example, vocabulary_word_id}
 
     fetch(endPoint, {
       method: "POST",
@@ -31,7 +33,6 @@ class Sentence {
       body: JSON.stringify(sData)
     })
     .then(response => response.json())
-    // .catch(error => console.log(error))
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data

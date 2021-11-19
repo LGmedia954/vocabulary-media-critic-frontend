@@ -5,6 +5,7 @@ class Vocabulary {
     this.part_of_speech = vwAttributes.part_of_speech
     this.definition = vwAttributes.definition
     Vocabulary.all.push(this)
+    console.log(this);
   }
 
 renderVocabularyCard() {
@@ -22,7 +23,8 @@ renderVocabularyCard() {
         <input id='create-button' type="submit" name="submit" value="Create New Sentence" class="submit">
       </form>
     </div>
-      <div id="my-sentence" style=""><br></div>
+      <div id="s-container"></div>
+
     </div>
   <br><br>`;
  }

@@ -32,8 +32,8 @@ function getSentence() {
       // creating a new instance of the S class from array
       let newSentence = new Sentence(sentence, sentence.attributes)
       
-      // document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+      document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
-    .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   })
 }
