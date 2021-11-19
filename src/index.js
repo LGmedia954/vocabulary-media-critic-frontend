@@ -17,10 +17,10 @@ function getVocab() {
     })
 
     // these 2 lines were moved here because we needed to wait for fetch to finish
-    const createSentenceForm = document.querySelector('#create-sentence-form')
-    createSentenceForm.addEventListener('submit', (e) => Sentence.sFormHandler(e))
+    const createSentenceForm = document.querySelector("#create-sentence-form")
+    createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
 
-    })
+  })
   .catch(error => console.log(error))
  }
 
@@ -29,11 +29,11 @@ function getSentence() {
   .then(response => response.json())
   .then(blurb => {
     blurb.data.forEach(sentence => {
-      // creating a new instance of the S class from array
+      
       let newSentence = new Sentence(sentence, sentence.attributes)
       
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
-    // .catch(error => console.log(error))
   })
+  .catch(error => console.log(error))
 }

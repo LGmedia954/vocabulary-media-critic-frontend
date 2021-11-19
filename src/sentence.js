@@ -15,13 +15,13 @@ class Sentence {
 
   sFormHandler(e) {
     e.preventDefault();
-    const eInput = document.querySelector("#input-example").value
-    const vWordId = document.querySelector("#input-vocabulary_word_id").value
+    const eInput = document.querySelector('#input-example').value
+    const vWordId = document.querySelector('#input-vocabulary_word_id').value
     Sentence.sPostFetch(eInput, vWordId)
   }
 
   sPostFetch(example, vocabulary_word_id) {
-    // build body object outside of fetch
+    // build the body object outside of fetch
     const sData = {example, vocabulary_word_id}
 
     fetch(endPoint, {
@@ -36,7 +36,7 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
-      // Data not coming through here. Check the above line for how it's nested.
+      // Page refreshing, and Data not coming through here.
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)
 
@@ -49,7 +49,7 @@ renderMySentence() {
     <div data-id=${this.id}>
       <h3>${this.example}</h3>
       <p>${this.vocabulary_word_id}</p>
-      <button data-id=${this.id}>edit</button>
+      <button data-id=${this.id}>delete</button>
     </div>
     <br><br>`;
   }
