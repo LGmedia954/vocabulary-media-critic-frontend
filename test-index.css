@@ -66,3 +66,9 @@
     flex: 1;
   }
 }
+
+.img-fluid {
+  background-image: url("https://lg-mediagroup.com/iStock-513541602_sq.jpg");
+  background-repeat: no-repeat;
+  background-size: auto !important;
+}
