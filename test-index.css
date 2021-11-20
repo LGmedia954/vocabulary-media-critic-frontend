@@ -70,5 +70,13 @@
 .img-fluid {
   background-image: url("https://lg-mediagroup.com/iStock-513541602_sq.jpg");
   background-repeat: no-repeat;
-  background-size: auto !important;
+  background-size: 100% 100%;
+}
+
+.bg-green {
+  background-color: darkseagreen;
+}
+
+.bg-warm {
+  background-color: papayawhip;
 }
