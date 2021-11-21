@@ -47,13 +47,27 @@ class Sentence {
 renderMySentence() {
   return `
     <div data-id=${this.id}>
-      <h3>${this.example}</h3>
-      <p>${this.vocabulary_word_id}</p>
-      <button data-id=${this.id}>delete</button>
-    </div>
-    <br><br>`;
+      <h2 class="display-5 fw-bold">Sentence</h2>
+      <p class="lead">Check your example below.</p><br>
+      <p class="lead fw-bold">${this.example}</p><br>
+      <p class="fst-italic">${this.vocabulary_word_id}</p>
+      <br><br>
+      <button type="submit" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
+    </div><br><br>`
   }
 
 }
 
 Sentence.all = [];
+
+
+
+// renderMySentence() {
+//   return `
+//     <div data-id=${this.id}>
+//       <h3>${this.example}</h3>
+//       <p>${this.vocabulary_word_id}</p>
+//       <button data-id=${this.id}>delete</button>
+//     </div>
+//     <br><br>`;
+//   }
