@@ -17,11 +17,13 @@ renderVocabularyCard() {
   </div>
   <form id="create-sentence-form">
     <div class="mb-3"><br>
-      <input type="email" class="form-control input-lg" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="input-example" class="form-text">Please enter a sentence using this word.</div>
+      <input id="input-example" type="text" name="example" value="" class="form-control">
+      <div id="emailHelp" class="form-text">Please enter a sentence using this word.</div>
       <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
       <br>
-      <button id="create-button" type="submit" class="btn btn-light">Create</button>
+      <button type="submit" class="btn btn-light">Create</button>
+      
+      <br><br>
     </div>
   </form><br><br>`
   }
@@ -52,3 +54,10 @@ Vocabulary.all = [];
 //     </div>
 //   <br><br>`;
 //  }
+
+
+
+// <div class="bg-green me-md-3 pt-3 px-3 pt-md-5 px-md-5 rounded text-center overflow-hidden">
+// <div id="s-container"></div>
+//   <br><br><br>
+// </div>

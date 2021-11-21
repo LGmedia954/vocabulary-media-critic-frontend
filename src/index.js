@@ -2,6 +2,7 @@ const endPoint = "http://localhost:3000/api/v1/vocabulary_words"
 
 document.addEventListener('DOMContentLoaded', () => {
   getVocab()
+  getSentence()
 
 })
 
@@ -26,8 +27,11 @@ function getVocab() {
 
 function getSentence() {
   fetch(endPoint)
-  .then(response => response.json())
+  .then(response => {
+    return response.json()
+  })
   .then(blurb => {
+    console.log(blurb);
     blurb.data.forEach(sentence => {
       
       let newSentence = new Sentence(sentence, sentence.attributes)

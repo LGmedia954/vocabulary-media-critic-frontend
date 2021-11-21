@@ -8,11 +8,6 @@ class Sentence {
     console.log(this);
   }
 
-  // static showForm() {
-  //   createSentenceForm.style.display="none"
-  //   createSentenceForm.style.display="block"
-  // }
-
   sFormHandler(e) {
     e.preventDefault();
     const eInput = document.querySelector('#input-example').value
@@ -47,12 +42,11 @@ class Sentence {
 renderMySentence() {
   return `
     <div data-id=${this.id}>
-      <h2 class="display-5 fw-bold">Sentence</h2>
-      <p class="lead">Check your example below.</p><br>
-      <p class="lead fw-bold">${this.example}</p><br>
-      <p class="fst-italic">${this.vocabulary_word_id}</p>
+      <h2 class="display-5 fw-bold">Sentence</h2><br>
+      <p class="fst-italic">${this.vocabulary_word_id}</p><br>
+      <p class="lead fw-bold">${this.example}</p>
       <br><br>
-      <button type="submit" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
+      <button type="button" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
     </div><br><br>`
   }
 
