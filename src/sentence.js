@@ -19,7 +19,7 @@ class Sentence {
     // build the body object outside of fetch
     const sData = {example, vocabulary_word_id}
 
-    fetch(endPoint, {
+    fetch(sEndPoint, {
       method: "POST",
       headers: { 
         'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
-const endPoint = "http://localhost:3000/api/v1/vocabulary_words"
+const vEndPoint = "http://localhost:3000/api/v1/vocabulary_words"
+const sEndPoint = "http://localhost:3000/api/v1/sentences"
 
 document.addEventListener('DOMContentLoaded', () => {
   getVocab()
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getVocab() {
-  fetch(endPoint)
+  fetch(vEndPoint)
   .then(response => response.json())
   .then(vocab => {
     vocab.data.forEach(vocabulary_word => {
@@ -26,7 +27,7 @@ function getVocab() {
  }
 
 function getSentence() {
-  fetch(endPoint)
+  fetch(sEndPoint)
   .then(response => {
     return response.json()
   })
