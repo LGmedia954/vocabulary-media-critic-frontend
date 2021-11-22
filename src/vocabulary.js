@@ -22,7 +22,6 @@ renderVocabularyCard() {
       <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
       <br>
       <button type="submit" class="btn btn-light">Create</button>
-      
       <br><br>
     </div>
   </form><br><br>`
@@ -57,7 +56,7 @@ Vocabulary.all = [];
 
 
 
-// <div class="bg-green me-md-3 pt-3 px-3 pt-md-5 px-md-5 rounded text-center overflow-hidden">
-// <div id="s-container"></div>
+// <div class="col-md-6 p-lg-5 mx-auto my-5 bg-warm rounded">
+//   <div class="container" id="s-container"></div>
 //   <br><br><br>
 // </div>

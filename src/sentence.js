@@ -4,11 +4,13 @@ class Sentence {
     this.id = sentence.id
     this.example = sAttributes.example
     this.vocabulary_word_id = sAttributes.vocabulary_word_id
+    this.vocabulary_word = sAttributes.vocabulary_word.word
     Sentence.all.push(this)
     console.log(this);
   }
 
   sFormHandler(e) {
+    // Page keeps refreshing upon submit
     e.preventDefault();
     const eInput = document.querySelector('#input-example').value
     const vWordId = document.querySelector('#input-vocabulary_word_id').value
@@ -31,7 +33,6 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
-      // Page refreshing, and Data not coming through here.
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)
 
@@ -42,10 +43,9 @@ class Sentence {
 renderMySentence() {
   return `
     <div data-id=${this.id}>
-      <h2 class="display-5 fw-bold">Sentence</h2><br>
-      <p class="fst-italic">${this.vocabulary_word_id}</p><br>
-      <p class="lead fw-bold">${this.example}</p>
-      <br><br>
+    <p class="display-6">${this.example}</p>
+      <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
+      <br>
       <button type="button" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
     </div><br><br>`
   }
