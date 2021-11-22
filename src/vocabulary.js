@@ -21,7 +21,7 @@ renderVocabularyCard() {
       <div id="emailHelp" class="form-text">Please enter a sentence using this word.</div>
       <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
       <br>
-      <button type="submit" class="btn btn-light">Create</button>
+      <input type="submit" class="btn btn-light" name="submit" value="Create"></input>
       <br><br>
     </div>
   </form><br><br>`
@@ -32,6 +32,9 @@ renderVocabularyCard() {
 Vocabulary.all = [];
 
 
+// <button type="submit" class="btn btn-light">Create</button>
+// <input type="submit" class="btn btn-light" id="create-button" name="submit" value="Create"></input>
+// <input type="submit" class="btn btn-light" name="submit" value="Create"></input>
 
 // renderVocabularyCard() {
 //   return `

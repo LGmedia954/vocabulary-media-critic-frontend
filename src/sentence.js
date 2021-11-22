@@ -10,8 +10,8 @@ class Sentence {
   }
 
   sFormHandler(e) {
-    // Page keeps refreshing upon submit
-    // e.preventDefault();
+    // Page keeps refreshing upon submit click
+    e.preventDefault();
     const eInput = document.querySelector('#input-example').value
     const vWordId = document.querySelector('#input-vocabulary_word_id').value
     Sentence.sPostFetch(eInput, vWordId)
@@ -38,6 +38,7 @@ class Sentence {
 
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
+    .catch(error => console.log(error))
   }
   
 renderMySentence() {
@@ -54,7 +55,10 @@ renderMySentence() {
 
 Sentence.all = [];
 
-// <button type="submit" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
+
+
+// <input type="hidden" id="sentence-id" value="${this.id}">
+// <input type="submit" class="btn btn-dark" value="Delete" id="delete-sentence-button">
 
 // renderMySentence() {
 //   return `
