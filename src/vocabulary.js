@@ -15,7 +15,7 @@ renderVocabularyCard() {
     <p class="fst-italic">${this.part_of_speech}</p>
     <p class="lead">${this.definition}</p>
   </div>
-  <form id="create-sentence-form">
+  <form id="create-sentence-form" onsubmit="sFormHandler(e);return false">
     <div class="mb-3"><br>
       <input id="input-example" type="text" name="example" value="" class="form-control">
       <div id="emailHelp" class="form-text">Please enter a sentence using this word.</div>

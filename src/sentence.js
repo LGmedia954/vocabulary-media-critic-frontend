@@ -11,7 +11,7 @@ class Sentence {
 
   sFormHandler(e) {
     // Page keeps refreshing upon submit
-    e.preventDefault();
+    // e.preventDefault();
     const eInput = document.querySelector('#input-example').value
     const vWordId = document.querySelector('#input-vocabulary_word_id').value
     Sentence.sPostFetch(eInput, vWordId)
@@ -46,7 +46,7 @@ renderMySentence() {
     <p class="display-6">${this.example}</p>
       <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
       <br>
-      <button type="button" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
+      <i class="fas fa-book-open fa-2x"></i>
     </div><br><br>`
   }
 
@@ -54,7 +54,7 @@ renderMySentence() {
 
 Sentence.all = [];
 
-
+// <button type="submit" class="btn btn-dark" data-id=${this.id} value="delete">Clear</button>
 
 // renderMySentence() {
 //   return `
