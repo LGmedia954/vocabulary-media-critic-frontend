@@ -34,10 +34,11 @@ function getSentence() {
   .then(blurb => {
     console.log(blurb);
     blurb.data.forEach(sentence => {
-      
+      // creating a new instance of the S class
       let newSentence = new Sentence(sentence, sentence.attributes)
       
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+
     })
   })
   .catch(error => console.log(error))
