@@ -18,12 +18,12 @@ renderVocabularyCard() {
     <input id="input-example" type="text" name="example" value="" class="form-control">
     <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
     <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-    <input type="submit" class="btn btn-light" id="create-sentence-button"></input>
+    <input type="submit" class="btn btn-light"></input>
     <br><br>   
   </form>
   </div><br><br>`
   }
-
+debugger
 }
 
 Vocabulary.all = [];

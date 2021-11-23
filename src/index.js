@@ -2,6 +2,8 @@ const vEndPoint = "http://localhost:3000/api/v1/vocabulary_words"
 const sEndPoint = "http://localhost:3000/api/v1/sentences"
 
 document.addEventListener('DOMContentLoaded', () => {
+  
+  console.log("DOM is Loaded");
   getVocab()
   getSentence()
 
@@ -28,6 +30,7 @@ function getVocab() {
 
 function getSentence() {
   fetch(sEndPoint)
+  // .then(response => response.json())
   .then(response => {
     return response.json()
   })
@@ -36,10 +39,17 @@ function getSentence() {
     blurb.data.forEach(sentence => {
       // creating a new instance of the S class
       let newSentence = new Sentence(sentence, sentence.attributes)
-      
+        
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
-
     })
   })
   .catch(error => console.log(error))
+}
+
+function sFormHandler(e) {
+  // Page keeps refreshing upon submit
+  e.preventDefault();
+  const eInput = document.querySelector('#input-example').value
+  const vWordId = document.querySelector('#input-vocabulary_word_id').value
+  Sentence.sPostFetch(eInput, vWordId)
 }

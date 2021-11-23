@@ -1,4 +1,3 @@
-const mySentence = document.querySelector("#my-sentence")
 class Sentence {
   constructor(sentence, sAttributes) { 
     this.id = sentence.id
@@ -7,14 +6,6 @@ class Sentence {
     this.vocabulary_word = sAttributes.vocabulary_word.word
     Sentence.all.push(this)
     console.log(this);
-  }
-
-  sFormHandler(e) {
-    // Page keeps refreshing upon submit click
-    e.preventDefault();
-    const eInput = document.querySelector('#input-example').value
-    const vWordId = document.querySelector('#input-vocabulary_word_id').value
-    Sentence.sPostFetch(eInput, vWordId)
   }
 
   sPostFetch(example, vocabulary_word_id) {
@@ -33,6 +24,7 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
+      // render JSON response
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)
 
@@ -43,13 +35,15 @@ class Sentence {
   
 renderMySentence() {
   return `
-    <div data-id=${this.id}>
-      <i class="fas fa-book-open fa-1x"></i>
-      <p class="display-6">${this.example}</p>
-      <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
-      <input type="hidden" id="sentence-id" value="${this.id}">
-      <input type="submit" class="btn btn-dark" value="Delete" id="delete-sentence-button">
-    </div><br><br><br>`
+    <div>
+      <div data-id=${this.id}>
+        <i class="fas fa-book-open fa-1x"></i>
+        <p class="display-6">${this.example}</p>
+        <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
+        <button class="btn btn-dark" id=${this.id} >Delete</button>
+      </div>
+    </div>
+      <br><br><br>`
   }
 
 }
