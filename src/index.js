@@ -1,5 +1,6 @@
 const vEndPoint = "http://localhost:3000/api/v1/vocabulary_words"
 const sEndPoint = "http://localhost:3000/api/v1/sentences"
+const createSentenceForm = document.getElementById("#create-sentence-form")
 
 document.addEventListener('DOMContentLoaded', () => {
   
@@ -19,7 +20,7 @@ function getVocab() {
 
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
-    const createSentenceForm = document.getElementById("#create-sentence-form")
+    // const createSentenceForm = document.getElementById("#create-sentence-form")
     
     window.onload=function() {
       if(createSentenceForm) {
