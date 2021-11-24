@@ -1,3 +1,4 @@
+const mySentence = document.getElementById("#my-sentence")
 class Sentence {
   constructor(sentence, sAttributes) { 
     this.id = sentence.id
@@ -32,6 +33,9 @@ class Sentence {
     })
     .catch(error => console.log(error))
   }
+
+// to do
+// mySentence.addEventListener(for delete action)
   
 renderMySentence() {
   return `

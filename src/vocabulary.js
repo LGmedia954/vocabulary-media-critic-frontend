@@ -1,3 +1,4 @@
+const createSentenceForm = document.getElementById("#create-sentence-form")
 class Vocabulary {
   constructor(vocabulary_word, vwAttributes) {
     this.id = vocabulary_word.id
@@ -19,11 +20,27 @@ class Vocabulary {
         <input id="input-example" type="text" name="example" value="" class="form-control">
         <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
         <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-        <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
+        <input type="submit" class="btn btn-light" value="Create"></input>
         <br><br>
       </div>
     </form><br><br>`
     }
+}
+
+window.onload=function() {
+  createSentenceForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    sFormHandler(e)
+    console.log("Form submitted.");
+  })
+ }
+
+ function sFormHandler(e) {
+  e.preventDefault();
+  console.log('this is a test')
+  const eInput = document.querySelector('#input-example').value
+  const vWordId = document.querySelector('#input-vocabulary_word_id').value
+  Sentence.sPostFetch(eInput, vWordId)
 }
 
 Vocabulary.all = [];
@@ -46,11 +63,6 @@ Vocabulary.all = [];
 //   </div><br><br>`
 //   }
 // }
-
-// <button type="submit" class="btn btn-light">Create</button>
-// <input type="submit" class="btn btn-light" id="create-button" name="submit" value="Create"></input>
-// <input type="submit" class="btn btn-light" name="submit" value="Create"></input>
-// <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 
 
 
