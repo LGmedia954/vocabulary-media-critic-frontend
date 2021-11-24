@@ -21,22 +21,19 @@ function getVocab() {
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
     // const createSentenceForm = document.getElementById("#create-sentence-form")
-    
-    window.onload=function() {
-      if(createSentenceForm) {
-      createSentenceForm.addEventListener("submit", (e) => {
-        e.preventDefault()
-        sFormHandler(e)
-      })
-    }
-  }
-    // createSentenceForm.addEventListener("submit", (e) => {
-    //   e.preventDefault()
-    //   sFormHandler(e)
-    // })
   })
   .catch(error => console.log(error))
  }
+
+ window.onload=function() {
+  if(createSentenceForm) {
+  createSentenceForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    sFormHandler(e)
+    console.log("Form submitted.");
+  })
+ }
+}
 
 function getSentence() {
   fetch(sEndPoint)
@@ -69,5 +66,10 @@ function sFormHandler(e) {
 
 
 
-  // const createSentenceForm = document.querySelector("#create-sentence-form")
-  // createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
+// createSentenceForm.addEventListener("submit", (e) => {
+//   e.preventDefault()
+//   sFormHandler(e)
+// })
+
+// const createSentenceForm = document.querySelector("#create-sentence-form")
+// createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))

@@ -10,24 +10,42 @@ class Vocabulary {
 
   renderVocabularyCard() {
     return `
-    <div data-id=${this.id}>
-      <h2 class="display-5 fw-bold">${this.word}</h2>
-      <p class="fst-italic">${this.part_of_speech}</p>
-      <p class="lead">${this.definition}</p>
     <form id="create-sentence-form"><br>
-      <input id="input-example" type="text" name="example" value="" class="form-control">
-      <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-      <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-      <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
-      <br><br>
-    </form>
-    </div><br><br>`
+      <div data-id=${this.id}>
+        <h2 class="display-5 fw-bold">${this.word}</h2>
+        <p class="fst-italic">${this.part_of_speech}</p>
+        <p class="lead">${this.definition}</p>
+    
+        <input id="input-example" type="text" name="example" value="" class="form-control">
+        <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
+        <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
+        <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
+        <br><br>
+      </div>
+    </form><br><br>`
     }
 }
 
 Vocabulary.all = [];
 
 
+
+// renderVocabularyCard() {
+//   return `
+//   <div data-id=${this.id}>
+//     <h2 class="display-5 fw-bold">${this.word}</h2>
+//     <p class="fst-italic">${this.part_of_speech}</p>
+//     <p class="lead">${this.definition}</p>
+//   <form id="create-sentence-form"><br>
+//     <input id="input-example" type="text" name="example" value="" class="form-control">
+//     <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
+//     <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
+//     <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
+//     <br><br>
+//   </form>
+//   </div><br><br>`
+//   }
+// }
 
 // <button type="submit" class="btn btn-light">Create</button>
 // <input type="submit" class="btn btn-light" id="create-button" name="submit" value="Create"></input>
