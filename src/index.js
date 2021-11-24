@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   getVocab()
   getSentence()
 
+  // const createSentenceForm = document.querySelector("#create-sentence-form")
+  // createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
+
 })
 
 function getVocab() {
@@ -19,11 +22,8 @@ function getVocab() {
 
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
-
-    // these 2 lines were moved here because we needed to wait for fetch to finish
-    const createSentenceForm = document.querySelector("#create-sentence-form")
-    createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
-
+    const createSentenceForm = document.getElementById("#create-sentence-form")
+    createSentenceForm.addEventListener("submit", (e) => sFormHandler(e))
   })
   .catch(error => console.log(error))
  }
@@ -37,18 +37,22 @@ function getSentence() {
   .then(blurb => {
     console.log(blurb);
     blurb.data.forEach(sentence => {
+      // debugger
       // creating a new instance of the S class
       let newSentence = new Sentence(sentence, sentence.attributes)
         
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
+    const mySentence = document.getElementById("#my-sentence")
+    // mySentence.addEventListener(for the delete)
   })
   .catch(error => console.log(error))
 }
 
 function sFormHandler(e) {
-  // Page keeps refreshing upon submit
+  debugger
   e.preventDefault();
+  console.log('this is a test')
   const eInput = document.querySelector('#input-example').value
   const vWordId = document.querySelector('#input-vocabulary_word_id').value
   Sentence.sPostFetch(eInput, vWordId)

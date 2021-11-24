@@ -35,7 +35,7 @@ class Sentence {
   
 renderMySentence() {
   return `
-    <div>
+    <div id="my-sentence">
       <div data-id=${this.id}>
         <i class="fas fa-book-open fa-1x"></i>
         <p class="display-6">${this.example}</p>

@@ -30,6 +30,13 @@ Vocabulary.all = [];
 
 
 
+// <button type="submit" class="btn btn-light">Create</button>
+// <input type="submit" class="btn btn-light" id="create-button" name="submit" value="Create"></input>
+// <input type="submit" class="btn btn-light" name="submit" value="Create"></input>
+// <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+
+
 // renderVocabularyCard() {
 //   return `
 //   <div data-id=${this.id}>
@@ -49,9 +56,7 @@ Vocabulary.all = [];
 //   </form><br><br>`
 //   }
 
-// <button type="submit" class="btn btn-light">Create</button>
-// <input type="submit" class="btn btn-light" id="create-button" name="submit" value="Create"></input>
-// <input type="submit" class="btn btn-light" name="submit" value="Create"></input>
+
 
 // renderVocabularyCard() {
 //   return `
