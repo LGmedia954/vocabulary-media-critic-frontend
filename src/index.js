@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   getVocab()
   getSentence()
 
-  // const createSentenceForm = document.querySelector("#create-sentence-form")
-  // createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
-
 })
 
 function getVocab() {
@@ -23,7 +20,19 @@ function getVocab() {
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
     const createSentenceForm = document.getElementById("#create-sentence-form")
-    createSentenceForm.addEventListener("submit", (e) => sFormHandler(e))
+    
+    window.onload=function() {
+      if(createSentenceForm) {
+      createSentenceForm.addEventListener("submit", (e) => {
+        e.preventDefault()
+        sFormHandler(e)
+      })
+    }
+  }
+    // createSentenceForm.addEventListener("submit", (e) => {
+    //   e.preventDefault()
+    //   sFormHandler(e)
+    // })
   })
   .catch(error => console.log(error))
  }
@@ -50,10 +59,14 @@ function getSentence() {
 }
 
 function sFormHandler(e) {
-  debugger
   e.preventDefault();
   console.log('this is a test')
   const eInput = document.querySelector('#input-example').value
   const vWordId = document.querySelector('#input-vocabulary_word_id').value
   Sentence.sPostFetch(eInput, vWordId)
 }
+
+
+
+  // const createSentenceForm = document.querySelector("#create-sentence-form")
+  // createSentenceForm.addEventListener("submit", (e) => Sentence.sFormHandler(e))
