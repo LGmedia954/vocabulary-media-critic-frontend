@@ -27,13 +27,17 @@ class Vocabulary {
     }
 }
 
+
+
 window.onload=function() {
+  if(createSentenceForm) {
   createSentenceForm.addEventListener("submit", (e) => {
     e.preventDefault();
     sFormHandler(e)
     console.log("Form submitted.");
   })
  }
+}
 
  function sFormHandler(e) {
   e.preventDefault();
