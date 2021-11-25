@@ -1,4 +1,4 @@
-const mySentence = document.getElementById("#my-sentence")
+const mySentence = document.getElementById("#my-sentence");
 class Sentence {
   constructor(sentence, sAttributes) { 
     this.id = sentence.id
@@ -9,10 +9,12 @@ class Sentence {
     console.log(this);
   }
 
-  sPostFetch(example, vocabulary_word_id) {
-    // build the body object outside of fetch
-    const sData = {example, vocabulary_word_id}
 
+
+static sPostFetch(example, vocabulary_word_id) {
+    // build the body object outside of fetch
+    const sData = {sentence: {example, vocabulary_word_id}}
+  
     fetch(sEndPoint, {
       method: "POST",
       headers: { 
@@ -28,7 +30,7 @@ class Sentence {
       // render JSON response
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)
-
+  
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
     .catch(error => console.log(error))

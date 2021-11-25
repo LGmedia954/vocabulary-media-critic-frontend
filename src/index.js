@@ -19,6 +19,16 @@ function getVocab() {
 
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
+
+    document.querySelectorAll(".create-sentence-form").forEach(form => {
+      form.addEventListener("submit", (e) => {
+       debugger
+        e.preventDefault();
+        console.log("Form submitted.");
+        sFormHandler(e)
+      })
+    })
+
   })
   .catch(error => console.log(error))
  }
@@ -42,6 +52,17 @@ function getSentence() {
   })
   .catch(error => console.log(error))
 }
+
+
+
+function sFormHandler(e) {
+  e.preventDefault();
+  console.log('Form handler.')
+  const eInput = document.querySelector('#input-example').value
+  const vWordId = document.querySelector('#input-vocabulary_word_id').value
+  Sentence.sPostFetch(eInput, vWordId)
+}
+
 
 
 
