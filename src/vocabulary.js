@@ -16,9 +16,10 @@ class Vocabulary {
         <p class="fst-italic">${this.part_of_speech}</p>
         <p class="lead">${this.definition}</p>
     
-        <input type="text" id="input-example" name="example" value="">
+        <input type="text" class="input-example" name="example" value="">
         <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-        <input type="hidden" id="input-vocabulary_word_id" name="vocabulary_word_id" value="">
+        <input type="hidden" class="input-vocabulary_word_id" name="vocabulary_word_id" value="${this.id}">
+        <input type="hidden" class="input-vocabulary_word" name="vocabulary_word" value="${this.word}">
         <input type="submit" class="btn btn-light" value="Create"></input>
         <br><br>
       </div>
@@ -27,25 +28,6 @@ class Vocabulary {
 }
 
 Vocabulary.all = [];
-
-
-
-// renderVocabularyCard() {
-//   return `
-//   <div data-id=${this.id}>
-//     <h2 class="display-5 fw-bold">${this.word}</h2>
-//     <p class="fst-italic">${this.part_of_speech}</p>
-//     <p class="lead">${this.definition}</p>
-//   <form id="create-sentence-form"><br>
-//     <input id="input-example" type="text" name="example" value="" class="form-control">
-//     <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-//     <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-//     <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
-//     <br><br>
-//   </form>
-//   </div><br><br>`
-//   }
-// }
 
 
 

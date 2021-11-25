@@ -9,33 +9,6 @@ class Sentence {
     console.log(this);
   }
 
-
-
-static sPostFetch(example, vocabulary_word_id) {
-    // build the body object outside of fetch
-    const sData = {sentence: {example, vocabulary_word_id}}
-  
-    fetch(sEndPoint, {
-      method: "POST",
-      headers: { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(sData)
-    })
-    .then(response => response.json())
-    .then(sentence => {
-      console.log(sentence);
-      const sentenceData = sentence.data
-      // render JSON response
-      // let newSentence = new Sentence(sentence, sentence.attributes)
-      let newSentence = new Sentence(sentenceData, sentenceData.attributes)
-  
-      document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
-    })
-    .catch(error => console.log(error))
-  }
-
 // to do
 // mySentence.addEventListener(for delete action)
   
