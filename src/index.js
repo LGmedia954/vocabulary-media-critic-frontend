@@ -24,8 +24,15 @@ function getVocab() {
       form.addEventListener("submit", (e) => {
        debugger
         e.preventDefault();
+        
+        // Tried moving this here from the form handler. Data is not coming through
+        const eInput = document.querySelector('.input-example').value
+        const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
+        const vWord = document.querySelector('.input-vocabulary_word').value
+        Sentence.sPostFetch(eInput, vWordId, vWord)
+
         console.log("Form submitted.");
-        sFormHandler(e)
+        //Sentence.sFormHandler(e)
       })
     })
 
@@ -55,38 +62,31 @@ function getSentence() {
 
 
 
-function sFormHandler(e) {
-  e.preventDefault();
-  console.log('Form handler.')
-  const eInput = document.querySelector('.input-example').value
-  const vWordId = document.querySelector('.input-vocabulary_word_id').value
-  const vWord = document.querySelector('.input-vocabulary_word').value
-  sPostFetch(eInput, vWordId, vWord)
-}
 
 
 
-function sPostFetch(example, vocabulary_word_id, _vocabulary_word) {
-  // build the body object outside of fetch
-  const sData = {sentence: {example, vocabulary_word_id, _vocabulary_word}}
 
-  fetch(sEndPoint, {
-    method: "POST",
-    headers: { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-   } ,
-    body: JSON.stringify(sData)
-  })
-  .then(response => response.json())
-  .then(sentence => {
-    // console.log(sentence);
-    const sentenceData = sentence.data
-    // render JSON response
-    // let newSentence = new Sentence(sentence, sentence.attributes)
-    let newSentence = new Sentence(sentenceData, sentenceData.attributes)
+// function sPostFetch(example, vocabulary_word_id, _vocabulary_word) {
+//   // build the body object outside of fetch
+//   const sData = {sentence: {example, vocabulary_word_id, _vocabulary_word}}
 
-    document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
-  })
-  .catch(error => console.log(error))
-}
+//   fetch(sEndPoint, {
+//     method: "POST",
+//     headers: { 
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//    } ,
+//     body: JSON.stringify(sData)
+//   })
+//   .then(response => response.json())
+//   .then(sentence => {
+//     console.log(sentence);
+//     const sentenceData = sentence.data
+//     // render JSON response
+//     // let newSentence = new Sentence(sentence, sentence.attributes)
+//     let newSentence = new Sentence(sentenceData, sentenceData.attributes)
+
+//     document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+//   })
+//   .catch(error => console.log(error))
+// }
