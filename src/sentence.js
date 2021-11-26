@@ -29,9 +29,9 @@ class Sentence {
 
 
 
-  static sPostFetch(example, vocabulary_word_id, _vocabulary_word) {
+  static sPostFetch(example, vocabulary_word_id, vocabulary_word) {
     // build the body object outside of fetch
-    const sData = {sentence: {example, vocabulary_word_id, _vocabulary_word}}
+    const sData = {sentence: {example, vocabulary_word_id, vocabulary_word}}
   
     fetch(sEndPoint, {
       method: "POST",
