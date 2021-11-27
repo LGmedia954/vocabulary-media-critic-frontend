@@ -33,9 +33,9 @@ static sFormHandler(e) {
 
   static sPostFetch(example, vocabulary_word_id, vocabulary_word) {
     // build the body object outside of fetch
-    const sData = {user: {example, vocabulary_word_id, vocabulary_word} }
+    const sData = {sentence: {example, vocabulary_word_id, vocabulary_word}}
   
-    fetch(sEndPoint, {
+    fetch('http://localhost:3000/api/v1/sentences', {
       method: "POST",
       headers: { 
         'Content-Type': 'application/json',
