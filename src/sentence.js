@@ -11,14 +11,16 @@ class Sentence {
 
 
 
-// static sFormHandler(e) {
-//   e.preventDefault();
-//   const eInput = document.querySelector('.input-example').value
-//   const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
-//   const vWord = document.querySelector('.input-vocabulary_word').value
-//   Sentence.sPostFetch(eInput, vWordId, vWord)
-//   }
+static sFormHandler(e) {
+  e.preventDefault();
+  const eInput = document.querySelector('.input-example').value
+  const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
+  const vWord = document.querySelector('.input-vocabulary_word').value
+  Sentence.sPostFetch(eInput, vWordId, vWord)
+  }
 
+  // sFormHandler(e) {
+  // e.preventDefault();
   // Also tried to .bind, from Cernan's YouTube video
   // this.sForm = document.querySelector('.create-sentence-form')
   // this.eInput = document.querySelector('.input-example').value
@@ -31,7 +33,7 @@ class Sentence {
 
   static sPostFetch(example, vocabulary_word_id, vocabulary_word) {
     // build the body object outside of fetch
-    const sData = {sentence: {example, vocabulary_word_id, vocabulary_word}}
+    const sData = {user: {example, vocabulary_word_id, vocabulary_word} }
   
     fetch(sEndPoint, {
       method: "POST",

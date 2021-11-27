@@ -24,15 +24,8 @@ function getVocab() {
       form.addEventListener("submit", (e) => {
        debugger
         e.preventDefault();
-        
-        // Tried moving this here from the form handler. Data is not coming through
-        const eInput = document.querySelector('.input-example').value
-        const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
-        const vWord = document.querySelector('.input-vocabulary_word').value
-        Sentence.sPostFetch(eInput, vWordId, vWord)
-
         console.log("Form submitted.");
-        //Sentence.sFormHandler(e)
+        Sentence.sFormHandler(e)
       })
     })
 
@@ -59,10 +52,6 @@ function getSentence() {
   })
   .catch(error => console.log(error))
 }
-
-
-
-
 
 
 
