@@ -31,13 +31,11 @@ renderVocabularyCard() {
 
 
   static grabSentence(e) {
-    // const inputGrab = e.target.querySelector('.input-example').value
-    // const inputGrab = document.querySelector('.input-example').oninput = function() {myFunction()};
-    const inputGrab = document.querySelector('.input-example').value
-    const vWordIdGrab = parseInt(document.querySelector('.input-vocabulary_word_id').value)
-    const vWordGrab = document.querySelector('.input-vocabulary_word').value
+    const userInput = document.querySelector('.input-example').value
+    const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
+    const vWord = document.querySelector('.input-vocabulary_word').value
     console.log("Sentence grab.");
-    Sentence.sFormHandler(e)
+    Sentence.sPostFetch(userInput, vWordId, vWord)
   }
 
 }
@@ -47,6 +45,10 @@ Vocabulary.all = [];
 
 // <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence()">
 // <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence(this.value)">
+
+    // const inputGrab = e.target.querySelector('.input-example').value
+    // const inputGrab = document.querySelector('.input-example').oninput = function() {myFunction()};
+
 
 // renderVocabularyCard() {
 //   return `

@@ -10,18 +10,8 @@ class Sentence {
   }
 
 
-
-  static sFormHandler(e) {
-    const userInput = e.target.value
-    const vWordId = e.target.parentElement.dataset.id
-    const vWord = e.target.parentElement.dataset.word
-    console.log("Form handler.");
-    sPostFetch(userInput, vWordId, vWord)
-  }
-
-
     
- sPostFetch(example, vocabulary_word_id, vocabulary_word) {
+ static sPostFetch(example, vocabulary_word_id, vocabulary_word) {
     // build the body object outside of fetch
     const sData = {sentence: {example, vocabulary_word_id, vocabulary_word}}
   

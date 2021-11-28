@@ -28,7 +28,6 @@ function getVocab() {
         e.preventDefault();
 
         document.querySelector('.input-example').addEventListener('input-example', Vocabulary.grabSentence);
-        document.querySelector('.input-example').addEventListener('input-example', Sentence.sFormHandler);
         console.log("Form submitted.");
       })
     })
