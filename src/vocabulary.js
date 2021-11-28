@@ -16,7 +16,7 @@ class Vocabulary {
         <p class="fst-italic">${this.part_of_speech}</p>
         <p class="lead">${this.definition}</p>
     
-        <input type="text" class="input-example" name="example" value="">
+        <input type="text" class="input-example" name="sentence[example]" value="">
         <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
         <input type="hidden" class="input-vocabulary_word_id" name="vocabulary_word_id" value="${this.id}">
         <input type="hidden" class="input-vocabulary_word" name="vocabulary_word" value="${this.word}">
