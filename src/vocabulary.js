@@ -34,7 +34,8 @@ renderVocabularyCard() {
     const userInput = document.querySelector('.input-example').value
     const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
     const vWord = document.querySelector('.input-vocabulary_word').value
-    console.log("Sentence grab.");
+    debugger
+    console.log("Form handler.");
     Sentence.sPostFetch(userInput, vWordId, vWord)
   }
 
