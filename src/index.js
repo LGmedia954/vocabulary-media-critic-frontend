@@ -27,7 +27,8 @@ function getVocab() {
         debugger
         e.preventDefault();
         console.log("Form submitted.");
-        grabSentence()
+
+        document.querySelector('.input-example').addEventListener("input", grabSentence());
         sFormHandler(e)
       })
     })

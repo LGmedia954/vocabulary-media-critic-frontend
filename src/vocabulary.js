@@ -33,6 +33,7 @@ renderVocabularyCard() {
   grabSentence() {
     e.preventDefault();
     // const inputGrab = e.target.querySelector('.input-example').value
+    // const inputGrab = document.querySelector('.input-example').oninput = function() {myFunction()};
     const inputGrab = document.querySelector('.input-example').value
     const vWordIdGrab = parseInt(document.querySelector('.input-vocabulary_word_id').value)
     const vWordGrab = document.querySelector('.input-vocabulary_word').value
@@ -47,7 +48,7 @@ Vocabulary.all = [];
 
 
 
-
+// <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence(this.value)">
 
 // renderVocabularyCard() {
 //   return `

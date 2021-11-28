@@ -16,7 +16,7 @@ class Sentence {
     const userInput = e.target.input.value
     const vWordId = e.target.parentElement.dataset.id
     const vWord = e.target.parentElement.dataset.word
-    console.log("Form handler check.");
+    console.log("Form handler.");
     sPostFetch(userInput, vWordId, vWord)
     }
 
