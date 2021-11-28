@@ -74,7 +74,7 @@ function getSentence() {
     const eInput = document.querySelector('.input-example').value
     const vWordId = parseInt(document.querySelector('.input-vocabulary_word_id').value)
     const vWord = document.querySelector('.input-vocabulary_word').value
-    Sentence.sPostFetch(eInput, vWordId, vWord)
+    sPostFetch(eInput, vWordId, vWord)
     }
 
 
