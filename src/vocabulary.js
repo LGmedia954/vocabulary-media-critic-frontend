@@ -8,26 +8,44 @@ class Vocabulary {
     console.log(this);
   }
 
-  renderVocabularyCard() {
-    return `
-    <form class="create-sentence-form"><br>
-      <div data-id=${this.id}>
-        <h2 class="display-5 fw-bold">${this.word}</h2>
-        <p class="fst-italic">${this.part_of_speech}</p>
-        <p class="lead">${this.definition}</p>
-    
-        <input type="text" class="input-example" name="sentence[example]" value="">
-        <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-        <input type="hidden" class="input-vocabulary_word_id" name="vocabulary_word_id" value="${this.id}">
-        <input type="hidden" class="input-vocabulary_word" name="vocabulary_word" value="${this.word}">
-        <input type="submit" class="btn btn-light" value="Create"></input>
-        <br><br>
-      </div>
-    </form><br><br>`
-    }
+
+
+renderVocabularyCard() {
+  return `
+  <form class="create-sentence-form"><br>
+    <div data-id=${this.id}>
+      <h2 class="display-5 fw-bold">${this.word}</h2>
+      <p class="fst-italic">${this.part_of_speech}</p>
+      <p class="lead">${this.definition}</p>
+  
+      <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence()">
+      <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
+      <input type="hidden" class="input-vocabulary_word_id" name="vocabulary_word_id" value="${this.id}">
+      <input type="hidden" class="input-vocabulary_word" name="vocabulary_word" value="${this.word}">
+      <input type="submit" class="btn btn-light" value="Create"></input>
+      <br><br>
+    </div>
+  </form><br><br>`
+  }
+
+
+
+  grabSentence() {
+    e.preventDefault();
+    // const inputGrab = e.target.querySelector('.input-example').value
+    const inputGrab = document.querySelector('.input-example').value
+    const vWordIdGrab = parseInt(document.querySelector('.input-vocabulary_word_id').value)
+    const vWordGrab = document.querySelector('.input-vocabulary_word').value
+    console.log("Sentence grab.");
+    Sentence.sFormHandler(e)
+  }
 }
 
+
+
 Vocabulary.all = [];
+
+
 
 
 
