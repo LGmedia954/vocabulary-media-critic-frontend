@@ -11,18 +11,17 @@ class Sentence {
 
 
 
-  sFormHandler(e) {
-    e.preventDefault();
-    const userInput = e.target.input.value
+  static sFormHandler(e) {
+    const userInput = e.target.value
     const vWordId = e.target.parentElement.dataset.id
     const vWord = e.target.parentElement.dataset.word
     console.log("Form handler.");
     sPostFetch(userInput, vWordId, vWord)
-    }
+  }
 
 
     
-  sPostFetch(example, vocabulary_word_id, vocabulary_word) {
+ sPostFetch(example, vocabulary_word_id, vocabulary_word) {
     // build the body object outside of fetch
     const sData = {sentence: {example, vocabulary_word_id, vocabulary_word}}
   
@@ -37,7 +36,6 @@ class Sentence {
       const sentenceData = sentence.data
 
       // debugger
-      // double check how data is nested in the console so you can successfully access the attributes of each individual object
       // render JSON response
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)

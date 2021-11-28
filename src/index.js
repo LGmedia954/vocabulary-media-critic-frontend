@@ -24,12 +24,12 @@ function getVocab() {
 
     document.querySelectorAll(".create-sentence-form").forEach(form => {
       form.addEventListener("submit", (e) => {
-        debugger
+        //debugger
         e.preventDefault();
-        console.log("Form submitted.");
 
-        document.querySelector('.input-example').addEventListener("input", grabSentence());
-        sFormHandler(e)
+        document.querySelector('.input-example').addEventListener('input-example', Vocabulary.grabSentence);
+        document.querySelector('.input-example').addEventListener('input-example', Sentence.sFormHandler);
+        console.log("Form submitted.");
       })
     })
 
