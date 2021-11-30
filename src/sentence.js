@@ -25,13 +25,30 @@ class Sentence {
     .then(sentence => {
       console.log(sentence);
       const sentenceData = sentence.data
-
       // debugger
       // render JSON response
       // let newSentence = new Sentence(sentence, sentence.attributes)
       let newSentence = new Sentence(sentenceData, sentenceData.attributes)
   
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+
+
+      // Added this duplicate code of the event listeners from index.js. getSentence function
+      // This is to fix a rare bug where the use of innerHTML += disables event listening. 
+      document.querySelectorAll(".my-sentence").forEach(form => {
+        form.addEventListener("submit", (e) => {
+  
+          e.preventDefault();
+  
+          document.querySelectorAll('.delete-btn.btn.btn-dark').forEach(button => {
+            button.addEventListener("submit", (e) => { e.preventDefault(), Sentence.deleteSentence(e) })
+          })
+  
+          e.preventDefault();
+          Sentence.deleteSentence(e)
+        })
+      })
+
     })
     .catch(error => console.log(error))
   }
@@ -47,7 +64,7 @@ renderMySentence() {
         <p class="display-6">${this.example}</p>
         <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
         <input type="hidden" class="input-id" name="id" value="${this.id}">
-        <button type="button" class="delete-btn btn btn-dark" value="Delete"></button>
+        <input type="submit" class="delete-btn btn btn-dark" value="Delete"></input>
       </div>
     </form>
       <br><br><br>`
