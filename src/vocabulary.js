@@ -34,7 +34,6 @@ renderVocabularyCard() {
     const userInput = e.target.querySelector('.input-example').value
     const vWordId = parseInt(e.target.querySelector('.input-vocabulary_word_id').value)
     const vWord = e.target.querySelector('.input-vocabulary_word').value
-    //debugger
     console.log("Form handler pass.");
     Sentence.sPostFetch(userInput, vWordId, vWord)
   }

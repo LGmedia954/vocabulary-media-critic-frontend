@@ -24,7 +24,7 @@ function getVocab() {
 
     document.querySelectorAll(".create-sentence-form").forEach(form => {
       form.addEventListener("submit", (e) => {
-        debugger
+        //debugger
         e.preventDefault();
 
         document.querySelector('.input-example').addEventListener('input-example', (e) => Vocabulary.grabSentence(e))
@@ -52,6 +52,17 @@ function getSentence() {
         
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
+
+    document.querySelectorAll(".my-sentence").forEach(form => {
+      form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        document.querySelector('.delete-btn.btn.btn-dark').addEventListener("submit", (e) => Sentence.deleteSentence(e))
+        Sentence.deleteSentence(e)
+      })
+    })
+
   })
   .catch(error => console.log(error))
 }
