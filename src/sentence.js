@@ -56,7 +56,7 @@ renderMySentence() {
 
 
 static deleteSentence(e) {
-
+  
   const grabId = parseInt(e.target.querySelector('.input-id').value)
 
   fetch(`${showUrl}/${grabId}`, {

@@ -8,7 +8,7 @@ I wanted my application to serve as a brief sampling of the critical vocabulary 
 
 # How To Use This Application
 
-To use this app, clone the repository, run bundle install for the necessary gems, then 'rails db:seed' for the seed data for this application. Then open the index.html file and run your rails server. Navigate to http://localhost:3000/. On initial load, a user will see a list of vocabulary words from the seed file. Click on the word that you would like to see defined, and you will be directed to that vocabulary word's show page. It will provide the word and its definition. You are welcome to type and submit your own sentence using that word. The page will then reload (and the DOM will update) to include that new submission.
+To use this app, clone the repository, run bundle install for the necessary gems, then 'rails db:seed' for the seed data for this application. Then open the index.html file and run your rails server. Navigate to http://localhost:3000/. On initial load, a user will see a list of vocabulary words from the seed file. Each word is accompanied by its part of speech (within the scope of media critique), plus its definition. You are welcome to type and submit your own sentence using that word. The DOM will update to include that new submission.
 
 # Project Requirements
 

@@ -67,12 +67,12 @@
   }
 }
 
-/* .img-fluid {
+.img-fluid {
   background-image: url("https://lg-mediagroup.com/iStock-513541602_sq.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-size: cover;
-} */
+  /* background-repeat: no-repeat; */
+  /* background-size: 100% 100%; */
+  /* background-size: cover; */
+}
 
 .bg-green {
   background-color: darkseagreen;
