@@ -24,6 +24,6 @@ WHAT THE PROGRAM DOES
 
 AJAX/FETCH REQUESTS
 
-- On initial page load, a Get Request is made for all Vocabulary Words
-- Goal: Upon user mouse actions, Get Requests are made for items to show
+- On initial page load, a Get Request is made for all Vocabulary Words.
 - A Post Request will be made to create and add a Sentence Example to the DOM.
+- Reach: Upon user mouse actions, Get Requests are made for items to show.

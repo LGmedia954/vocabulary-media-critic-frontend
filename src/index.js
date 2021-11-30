@@ -58,7 +58,9 @@ function getSentence() {
 
         e.preventDefault();
 
-        document.querySelector('.delete-btn.btn.btn-dark').addEventListener("submit", (e) => Sentence.deleteSentence(e))
+        document.querySelector('.delete-btn.btn.btn-dark').addEventListener('delete-btn.btn.btn-dark', (e) => Sentence.deleteSentence(e))
+        // Intermittent
+        e.preventDefault();
         Sentence.deleteSentence(e)
       })
     })
