@@ -1,4 +1,3 @@
-const createSentenceForm = document.getElementById("#create-sentence-form")
 class Vocabulary {
   constructor(vocabulary_word, vwAttributes) {
     this.id = vocabulary_word.id
@@ -9,65 +8,53 @@ class Vocabulary {
     console.log(this);
   }
 
-  renderVocabularyCard() {
-    return `
-    <form id="create-sentence-form"><br>
-      <div data-id=${this.id}>
-        <h2 class="display-5 fw-bold">${this.word}</h2>
-        <p class="fst-italic">${this.part_of_speech}</p>
-        <p class="lead">${this.definition}</p>
-    
-        <input id="input-example" type="text" name="example" value="" class="form-control">
-        <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-        <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-        <input type="submit" class="btn btn-light" value="Create"></input>
-        <br><br>
-      </div>
-    </form><br><br>`
-    }
+
+
+renderVocabularyCard() {
+  return `
+  <form class="create-sentence-form"><br>
+    <div data-id=${this.id}>
+      <h2 class="display-5 fw-bold">${this.word}</h2>
+      <p class="fst-italic">${this.part_of_speech}</p>
+      <p class="lead">${this.definition}</p>
+  
+      <input type="text" class="input-example" name="sentence[example]" value="">
+      <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
+      <input type="hidden" class="input-vocabulary_word_id" name="vocabulary_word_id" value="${this.id}">
+      <input type="hidden" class="input-vocabulary_word" name="vocabulary_word" value="${this.word}">
+      <input type="submit" class="btn btn-light" value="Create"></input>
+      <br><br>
+    </div>
+  </form><br><br>`
 }
 
 
 
-window.onload=function() {
-  if(createSentenceForm) {
-  createSentenceForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    sFormHandler(e)
-    console.log("Form submitted.");
-  })
- }
-}
+  static grabSentence(e) {
+    const userInput = e.target.querySelector('.input-example').value
+    const vWordId = parseInt(e.target.querySelector('.input-vocabulary_word_id').value)
+    const vWord = e.target.querySelector('.input-vocabulary_word').value
+    console.log("Form handler pass.");
+    Sentence.sPostFetch(userInput, vWordId, vWord)
+  }
 
- function sFormHandler(e) {
-  e.preventDefault();
-  console.log('this is a test')
-  const eInput = document.querySelector('#input-example').value
-  const vWordId = document.querySelector('#input-vocabulary_word_id').value
-  Sentence.sPostFetch(eInput, vWordId)
 }
 
 Vocabulary.all = [];
 
 
+// <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence()">
 
-// renderVocabularyCard() {
-//   return `
-//   <div data-id=${this.id}>
-//     <h2 class="display-5 fw-bold">${this.word}</h2>
-//     <p class="fst-italic">${this.part_of_speech}</p>
-//     <p class="lead">${this.definition}</p>
-//   <form id="create-sentence-form"><br>
-//     <input id="input-example" type="text" name="example" value="" class="form-control">
-//     <p class="form-text" id="emailHelp">Please enter a sentence using this word.</p>
-//     <input id="input-vocabulary_word_id" type="hidden" name="vocabulary_word_id" value="">
-//     <input type="submit" id="create-sentence" class="btn btn-light" value="Create"></input>
-//     <br><br>
-//   </form>
-//   </div><br><br>`
-//   }
+// document.getElementById("myInput").oninput = function() {myFunction()};
+// document.getElementById("myInput").addEventListener("input", myFunction);
+
+// <input type="text" class="input-example" name="sentence[example]" value="" oninput="grabSentence(this.value)">
+// function myFunction(val) {
+//   document.getElementById("demo").innerHTML = val; 
 // }
 
+    // const inputGrab = e.target.querySelector('.input-example').value
+    // const inputGrab = document.querySelector('.input-example').oninput = function() {myFunction()};
 
 
 // renderVocabularyCard() {

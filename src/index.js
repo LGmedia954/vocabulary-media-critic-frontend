@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+
+
 function getVocab() {
   fetch(vEndPoint)
   .then(response => response.json())
@@ -19,6 +21,17 @@ function getVocab() {
 
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
     })
+
+    document.querySelectorAll(".create-sentence-form").forEach(form => {
+      form.addEventListener("submit", (e) => {
+        //debugger
+        e.preventDefault();
+
+        document.querySelector('.input-example').addEventListener('input-example', (e) => Vocabulary.grabSentence(e))
+        Vocabulary.grabSentence(e)
+      })
+    })
+
   })
   .catch(error => console.log(error))
  }
@@ -34,14 +47,49 @@ function getSentence() {
   .then(blurb => {
     console.log(blurb);
     blurb.data.forEach(sentence => {
-      // debugger
+      
       let newSentence = new Sentence(sentence, sentence.attributes)
         
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
+
+    document.querySelectorAll(".my-sentence").forEach(form => {
+      form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        document.querySelector('.delete-btn.btn.btn-dark').addEventListener("submit", (e) => Sentence.deleteSentence(e))
+        Sentence.deleteSentence(e)
+      })
+    })
+
   })
   .catch(error => console.log(error))
 }
 
 
 
+// function sPostFetch(example, vocabulary_word_id, _vocabulary_word) {
+//   // build the body object outside of fetch
+//   const sData = {sentence: {example, vocabulary_word_id, _vocabulary_word}}
+
+//   fetch(sEndPoint, {
+//     method: "POST",
+//     headers: { 
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//    } ,
+//     body: JSON.stringify(sData)
+//   })
+//   .then(response => response.json())
+//   .then(sentence => {
+//     console.log(sentence);
+//     const sentenceData = sentence.data
+//     // render JSON response
+//     // let newSentence = new Sentence(sentence, sentence.attributes)
+//     let newSentence = new Sentence(sentenceData, sentenceData.attributes)
+
+//     document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
+//   })
+//   .catch(error => console.log(error))
+// }
