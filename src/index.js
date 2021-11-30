@@ -53,12 +53,18 @@ function getSentence() {
       document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
     })
 
+    e.preventDefault();
+
     document.querySelectorAll(".my-sentence").forEach(form => {
       form.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
-        document.querySelector('.delete-btn.btn.btn-dark').addEventListener('delete-btn.btn.btn-dark', (e) => e.preventDefault(), Sentence.deleteSentence(e))
+        document.querySelectorAll('.delete-btn.btn.btn-dark').forEach(button => {
+          button.addEventListener('delete-btn.btn.btn-dark', (e) => { e.preventDefault(), Sentence.deleteSentence(e) })
+        })
+
+        e.preventDefault();
         Sentence.deleteSentence(e)
       })
     })

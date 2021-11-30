@@ -47,7 +47,7 @@ renderMySentence() {
         <p class="display-6">${this.example}</p>
         <p class="fst-italic">... using word # ${this.vocabulary_word_id} "${this.vocabulary_word}"</p>
         <input type="hidden" class="input-id" name="id" value="${this.id}">
-        <input type="submit" class="delete-btn btn btn-dark" value="Delete"></input>
+        <button type="button" class="delete-btn btn btn-dark" value="Delete"></button>
       </div>
     </form>
       <br><br><br>`
