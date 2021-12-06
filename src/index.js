@@ -20,6 +20,8 @@ function getVocab() {
       let newVocabulary = new Vocabulary(vocabulary_word, vocabulary_word.attributes)
 
       document.querySelector('#v-container').innerHTML += newVocabulary.renderVocabularyCard()
+      //better method below to avoid the event listener problem
+      //document.querySelector('#v-container').insertAdjacentHTML("beforeend", newVocabulary.renderVocabularyCard())
     })
 
     document.querySelectorAll(".create-sentence-form").forEach(form => {
