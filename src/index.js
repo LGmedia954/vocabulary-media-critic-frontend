@@ -68,6 +68,19 @@ function getSentence() {
         e.preventDefault();
         Sentence.deleteSentence(e)
       })
+
+      
+      // quick assessment 4/15/22
+      // const grabForm = document.getElementById('user-comments-form');
+      //   grabForm.addEventListener("submit", (e) => {
+      //   e.preventDefault();
+  
+      //   let pElem = document.querySelector('#user-comments-div');
+      //   pElem.innerHTML = document.querySelector('#user-comments-input').value
+       
+      //  });
+
+
     })
 
   })
