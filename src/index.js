@@ -88,28 +88,3 @@ function getSentence() {
 }
 
 
-
-// function sPostFetch(example, vocabulary_word_id, _vocabulary_word) {
-//   // build the body object outside of fetch
-//   const sData = {sentence: {example, vocabulary_word_id, _vocabulary_word}}
-
-//   fetch(sEndPoint, {
-//     method: "POST",
-//     headers: { 
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//    } ,
-//     body: JSON.stringify(sData)
-//   })
-//   .then(response => response.json())
-//   .then(sentence => {
-//     console.log(sentence);
-//     const sentenceData = sentence.data
-//     // render JSON response
-//     // let newSentence = new Sentence(sentence, sentence.attributes)
-//     let newSentence = new Sentence(sentenceData, sentenceData.attributes)
-
-//     document.querySelector('#s-container').innerHTML += newSentence.renderMySentence()
-//   })
-//   .catch(error => console.log(error))
-// }
